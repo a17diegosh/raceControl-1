@@ -1,15 +1,23 @@
-import java.util.Collections;
+package org.campusdual.racecontrol.race;
+
+import org.campusdual.racecontrol.object.Car;
+import org.campusdual.racecontrol.object.Podium;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class LapKnockOutRace extends Race {
 
-
-
     private int lapsAmount;
 
-    public LapKnockOutRace(String raceName, int length, List<Car> cars) {
-        super(raceName, length, cars);
+    public LapKnockOutRace(String raceName, int length) {
+        super(raceName, length);
         this.lapsAmount = cars.size();
+    }
+
+    public LapKnockOutRace(String raceName, int length, List<Car> cars) {
+        this(raceName,length);
+        this.cars = cars;
     }
 
     protected List<Car> lap() {

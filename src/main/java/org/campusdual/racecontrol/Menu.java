@@ -1,3 +1,5 @@
+package org.campusdual.racecontrol;
+
 public class Menu {
 
     public String menuPrincipal() {

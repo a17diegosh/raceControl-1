@@ -1,3 +1,10 @@
+package org.campusdual.racecontrol.object;
+
+import org.campusdual.racecontrol.object.Car;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Podium {
     private Car firstPlace;
     private Car secondPlace;
@@ -7,6 +14,14 @@ public class Podium {
         this.firstPlace = firstPlace;
         this.secondPlace = secondPlace;
         this.thirdPlace = thirdPlace;
+    }
+
+    public List<Car> getCars() {
+        List<Car> cars = new ArrayList<Car>();
+        cars.add(firstPlace);
+        cars.add(secondPlace);
+        cars.add(thirdPlace);
+        return cars;
     }
 
     public String toString() {

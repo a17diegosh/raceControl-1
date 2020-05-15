@@ -1,3 +1,9 @@
+package org.campusdual.racecontrol.race;
+
+import org.campusdual.racecontrol.object.Car;
+import org.campusdual.racecontrol.object.Podium;
+import org.campusdual.racecontrol.object.Team;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -11,23 +17,38 @@ public abstract class Race {
 
     protected  String raceName;
     protected int length;
-    protected List<Garage> garages;
+    protected List<Team> teams;
     protected List<Car> cars;
     protected Podium podium;
     protected int currentLap;
 
     protected abstract List<Car> lap();
 
-    private Race (String raceName, int length) {
+    public Race (String raceName, int length) {
         this.currentLap = 1;
         this.raceName = raceName;
         this.length = length;
-        this.garages = new ArrayList<Garage>();
+        this.teams = new ArrayList<Team>();
         this.cars = new ArrayList<Car>();
+    }
+
+    public String toString() {
+        return "RaceName : " + raceName + "\n\t" +
+                "Race Length: " + length + "\n\t" +
+                "Teams: " + teams.toString() + "\n\t" +
+                "Cars : " + cars.toString() + "\n\t";
     }
 
     public Race (String raceName, int length, List<Car> cars) {
         this(raceName,length);
+        this.cars.addAll(cars);
+    }
+
+    public void setTeams(List<Team> teams) {
+        this.teams.addAll(teams);
+    }
+
+    public void setCars(List<Car> cars) {
         this.cars.addAll(cars);
     }
 

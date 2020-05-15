@@ -1,3 +1,5 @@
+package org.campusdual.racecontrol.object;
+
 public class Car {
 
     private int odometer;
@@ -5,6 +7,7 @@ public class Car {
     private static int maxSpeed = 5;
     private String brand;
     private String model;
+    private Team team;
 
     public Car (String brand, String model) {
         this.odometer = 0;
@@ -13,9 +16,12 @@ public class Car {
     }
 
     public Car (int odometer, String brand, String model) {
+        this(brand, model);
         this.odometer = odometer;
-        this.brand = brand;
-        this.model = model;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 
     public void drive() {
